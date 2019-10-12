@@ -168,8 +168,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AmenidadesController.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
+    <Compile Include="Controllers\CondicionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InmueblesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TipoVentasController.cs" />
     <Compile Include="DataAccess\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -247,6 +252,31 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Amenidades\Create.cshtml" />
+    <Content Include="Views\Amenidades\Delete.cshtml" />
+    <Content Include="Views\Amenidades\Details.cshtml" />
+    <Content Include="Views\Amenidades\Edit.cshtml" />
+    <Content Include="Views\Amenidades\Index.cshtml" />
+    <Content Include="Views\Categorias\Create.cshtml" />
+    <Content Include="Views\Categorias\Delete.cshtml" />
+    <Content Include="Views\Categorias\Details.cshtml" />
+    <Content Include="Views\Categorias\Edit.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Condiciones\Create.cshtml" />
+    <Content Include="Views\Condiciones\Delete.cshtml" />
+    <Content Include="Views\Condiciones\Details.cshtml" />
+    <Content Include="Views\Condiciones\Edit.cshtml" />
+    <Content Include="Views\Condiciones\Index.cshtml" />
+    <Content Include="Views\TipoVentas\Create.cshtml" />
+    <Content Include="Views\TipoVentas\Delete.cshtml" />
+    <Content Include="Views\TipoVentas\Details.cshtml" />
+    <Content Include="Views\TipoVentas\Edit.cshtml" />
+    <Content Include="Views\TipoVentas\Index.cshtml" />
+    <Content Include="Views\Inmuebles\Create.cshtml" />
+    <Content Include="Views\Inmuebles\Delete.cshtml" />
+    <Content Include="Views\Inmuebles\Details.cshtml" />
+    <Content Include="Views\Inmuebles\Edit.cshtml" />
+    <Content Include="Views\Inmuebles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,50 @@
+﻿@model FindMyPlace.Models.Inmueble
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inmueble</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Condicion.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Condicion.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoVenta.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoVenta.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InmuebleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

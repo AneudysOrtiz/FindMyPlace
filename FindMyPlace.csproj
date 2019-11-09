@@ -174,6 +174,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InmueblesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MonedasController.cs" />
     <Compile Include="Controllers\TipoVentasController.cs" />
     <Compile Include="DataAccess\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -182,6 +183,22 @@
     <Compile Include="Migrations\201910120518519_InitiL.cs" />
     <Compile Include="Migrations\201910120518519_InitiL.Designer.cs">
       <DependentUpon>201910120518519_InitiL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910121352191_Inmuebles.cs" />
+    <Compile Include="Migrations\201910121352191_Inmuebles.Designer.cs">
+      <DependentUpon>201910121352191_Inmuebles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910121406425_Decripcion inmueble.cs" />
+    <Compile Include="Migrations\201910121406425_Decripcion inmueble.Designer.cs">
+      <DependentUpon>201910121406425_Decripcion inmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911090323243_Coords.cs" />
+    <Compile Include="Migrations\201911090323243_Coords.Designer.cs">
+      <DependentUpon>201911090323243_Coords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911090406240_Monedas.cs" />
+    <Compile Include="Migrations\201911090406240_Monedas.Designer.cs">
+      <DependentUpon>201911090406240_Monedas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -192,15 +209,19 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Inmueble.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Moneda.cs" />
     <Compile Include="Models\TipoVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\apartamento.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\casa.jpg" />
+    <Content Include="Content\casa_prefabricada.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -277,6 +298,11 @@
     <Content Include="Views\Inmuebles\Details.cshtml" />
     <Content Include="Views\Inmuebles\Edit.cshtml" />
     <Content Include="Views\Inmuebles\Index.cshtml" />
+    <Content Include="Views\Monedas\Create.cshtml" />
+    <Content Include="Views\Monedas\Delete.cshtml" />
+    <Content Include="Views\Monedas\Details.cshtml" />
+    <Content Include="Views\Monedas\Edit.cshtml" />
+    <Content Include="Views\Monedas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +323,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910120518519_InitiL.resx">
       <DependentUpon>201910120518519_InitiL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910121352191_Inmuebles.resx">
+      <DependentUpon>201910121352191_Inmuebles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910121406425_Decripcion inmueble.resx">
+      <DependentUpon>201910121406425_Decripcion inmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911090323243_Coords.resx">
+      <DependentUpon>201911090323243_Coords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911090406240_Monedas.resx">
+      <DependentUpon>201911090406240_Monedas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

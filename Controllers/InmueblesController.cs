@@ -18,7 +18,7 @@ namespace FindMyPlace.Controllers
         // GET: Inmuebles
         public ActionResult Index()
         {
-            var inmuebles = db.Inmuebles.Include(i => i.Categoria).Include(i => i.Condicion).Include(i => i.TipoVenta);
+            var inmuebles = db.Inmuebles.Include(i => i.Categoria).Include(i => i.Condicion).Include(i => i.TipoVenta).Include(i => i.Moneda);
             return View(inmuebles.ToList());
         }
 
@@ -43,6 +43,10 @@ namespace FindMyPlace.Controllers
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Nombre");
             ViewBag.CondicionId = new SelectList(db.Condiciones, "CondicionId", "Descripcion");
             ViewBag.TipoVentaId = new SelectList(db.TipoVentas, "TipoVentaId", "Descripcion");
+            ViewBag.MonedaId = new SelectList(db.Monedas, "MonedaId", "Nombre");
+            
+            ViewBag.Amenidades = db.Amenidades.ToList();
+
             return View();
         }
 
@@ -51,10 +55,19 @@ namespace FindMyPlace.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InmuebleId,Precio,TipoVentaId,CondicionId,CategoriaId")] Inmueble inmueble)
+        public ActionResult Create([Bind(Include = "InmuebleId,Precio,TipoVentaId,Direccion,CondicionId,CategoriaId,Habitaciones,Area,Descripcion,Latitude,Longitude")] Inmueble inmueble)
         {
             if (ModelState.IsValid)
             {
+                var last = db.Inmuebles.ToList().LastOrDefault();
+                var codigo = 1;
+                if (last != null)
+                    codigo = int.Parse(last.Codigo);
+
+                codigo++;
+
+                inmueble.Codigo = codigo.ToString().PadLeft(4, '0');
+
                 db.Inmuebles.Add(inmueble);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -63,6 +76,7 @@ namespace FindMyPlace.Controllers
             ViewBag.CategoriaId = new SelectList(db.Categorias, "CategoriaId", "Nombre", inmueble.CategoriaId);
             ViewBag.CondicionId = new SelectList(db.Condiciones, "CondicionId", "Descripcion", inmueble.CondicionId);
             ViewBag.TipoVentaId = new SelectList(db.TipoVentas, "TipoVentaId", "Descripcion", inmueble.TipoVentaId);
+            ViewBag.Amenidades = db.Amenidades.ToList();
             return View(inmueble);
         }
 
@@ -89,7 +103,7 @@ namespace FindMyPlace.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InmuebleId,Precio,TipoVentaId,CondicionId,CategoriaId")] Inmueble inmueble)
+        public ActionResult Edit([Bind(Include = "InmuebleId,Precio,TipoVentaId,Direccion,CondicionId,CategoriaId,Habitaciones,Area")] Inmueble inmueble)
         {
             if (ModelState.IsValid)
             {

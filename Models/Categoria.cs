@@ -10,6 +10,7 @@ namespace FindMyPlace.Models
     {
         [Key]
         public int CategoriaId { get; set; }
+        [Required]
         public string Nombre { get; set; }
         public virtual ICollection<Inmueble> Inmuebles { get; set; }
 

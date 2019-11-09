@@ -17,6 +17,7 @@ namespace FindMyPlace.DataAccess
         public DbSet<Condicion> Condiciones { get; set; }
         public DbSet<Inmueble> Inmuebles { get; set; }
         public DbSet<TipoVenta> TipoVentas { get; set; }
+        public DbSet<Moneda> Monedas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

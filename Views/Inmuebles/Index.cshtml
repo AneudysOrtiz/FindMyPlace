@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<FindMyPlace.Models.Inmueble>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inmuebles";
 }
 
-<h2>Index</h2>
+<h2>Inmuebles</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,16 +12,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Categoria.Nombre)
+            Categoría
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Condicion.Descripcion)
+           Condición
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TipoVenta.Descripcion)
+            Tipo de Venta
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Habitaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
         </th>
         <th></th>
     </tr>
@@ -39,6 +48,15 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Habitaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area) mts
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.InmuebleId }) |

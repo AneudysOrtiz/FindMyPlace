@@ -4,8 +4,16 @@
     ViewBag.Title = "Home Page";
 }
 <style>
-    #map{
-        height:300px
+    #map {
+        height: 300px
+    }
+
+    .padding-20 {
+        padding-top: 20px;
+    }
+
+    .portfolio-item {
+        margin-bottom: 30px;
     }
 </style>
 <div class="container-fluid">
@@ -16,7 +24,28 @@
     <div id="map"></div>
 </div>
 
-<div class="container row">
+<div class="row padding-20">
+    <h3 class="text-center">Últimos inmuebles</h3>
+    <hr />
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="~/Content/apartamento.jpg" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            @Html.ActionLink(item.Categoria.Nombre + " en " + item.TipoVenta.Descripcion, "Details", "Inmuebles", new { id = item.InmuebleId }, null)
+                        </h4>
+                        <p>@item.Moneda.Nombre @string.Format("{0:C}", item.Precio) </p>
+                        <p class="card-text">@item.Descripcion</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+
     <div class="col-md-4">
         <img class="img-thumbnail" src="~/Content/apartamento.jpg" />
     </div>
@@ -30,7 +59,9 @@
 
 <script>
     var map;
-    var marker
+    var marker;
+    var markers = [];
+    var infoArray = [];
 
     function initMap() {
         var lat = 18.4735048;
@@ -41,13 +72,33 @@
             zoom: 13
         });
 
-        marker = new google.maps.Marker({
-            position: { lat: lat, lng: lng },
-            map: map,
-            animation:google.maps.Animation.DROP
-        });
+        @foreach (var item in Model)
+        {
+            if(item.Latitude != null && item.Longitude != null)
+            {
+                @:markers.push({ "lat":@item.Latitude, "lng":@item.Longitude});
+                @:infoArray.push("<div id='content'>@item.Categoria.Nombre <br/>@item.Moneda.Nombre @string.Format("{0:C}", item.Precio)</div>");
+            }
+        }
+        console.log(markers)
+
+        markers.forEach((item,index) => {
+            var infowindow = new google.maps.InfoWindow({
+                content: infoArray[index]
+             });
+
+            var marker = new google.maps.Marker({
+                position: item,
+                map: map,
+                animation: google.maps.Animation.DROP
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+        })
+
     }
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsCBz6lI00qX1Hf3SIL2XVdX_mT0asYB4&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
         async defer></script>

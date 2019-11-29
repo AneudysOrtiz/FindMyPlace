@@ -17,7 +17,7 @@ namespace FindMyPlace.Controllers
         public ActionResult Index()
         {
             var inmuebles = db.Inmuebles.Include(i => i.Categoria).Include(i => i.Condicion).Include(i => i.TipoVenta).Include(i => i.Moneda);
-            return View(inmuebles.ToList());
+            return View(inmuebles.ToList().OrderByDescending(x=>x.InmuebleId));
         }
 
         public ActionResult About()

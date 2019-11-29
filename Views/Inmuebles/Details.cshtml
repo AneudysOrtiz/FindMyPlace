@@ -97,6 +97,11 @@
 
             <button class="btn btn-info">Contactar vendedor →</button>
 
+            <p>
+                <br />
+                @Html.ActionLink("Edit", "Edit", new { id = Model.InmuebleId }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
         </div>
 
         <!-- Side Widget -->
@@ -114,10 +119,6 @@
 </div>
 
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.InmuebleId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
 
 
 <script>
@@ -125,8 +126,8 @@
     var marker
 
     function initMap() {
-        var lat = @Model.Latitude || 18.4735048;
-        var lng = @Model.Longitude || -69.9158525
+        var lat = @Model.Latitude;
+        var lng = @Model.Longitude;
 
         map = new google.maps.Map(document.getElementById('map'), {
             center: { lat: lat, lng: lng },
